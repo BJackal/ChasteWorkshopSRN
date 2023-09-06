@@ -10,7 +10,7 @@ Then we must clone this project: ``` git clone https://github.com/BJackal/DeltaN
 Now we navigate into our cloned user project from the command line and run our setup: ```python setup_project.py```
 Here our project only relies on the cell based portion of Chaste so we answer yes to cell based and no lung and heart.
 Now we are ready to make sure that our project will compile correctly. To do this we use the command line to navigate to our chaste build folder (This should be outside of the main Chaste source folder) and run: ```ccmake path/to/Chaste```
-While this is running we will be prompted for an input to configure our project. For this we will press ```c ``` then on completion ```e```` to exit.
+While this is running we will be prompted for an input to configure our project. For this we will press ```c ``` then on completion ```e``` to exit.
 Then we will configure with ```c``` onece more, followed up by ```e``` to exit and finally ```g``` to generate.
 We are no ready to to make our tests.
 
