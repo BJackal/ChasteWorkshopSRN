@@ -45,7 +45,7 @@ Following previous steps we can already run our simulation by executing ```make 
 
 As we have only previously utilised a uniform vertex mesh so far, lets go back to our test file and comment out line 111 and repalce this by uncommenting line 112. This will switch out our uniform vertex mesh for a more dynamic Voronoi vertex mesh. This will create a dynamic mesh with cells edges defined based on distances from each others centres. Now re-run your simulation to view how this looks in paraview and compare it to the previous uniform mesh.
 
-Simillar to in Example 1 lets also repalce our ``NoCellCycleModel* p_cc_model = new NoCellCycleModel``` on line 122 to ```UnifromG1GenerationCellCycleModel* p_cc_model = new UnifromG1GenerationCellCycleModel```. Simillarly, lets Uncomment lines 
+Simillar to in Example 1 lets also repalce our ```NoCellCycleModel* p_cc_model = new NoCellCycleModel``` on line 122 to ```UnifromG1GenerationCellCycleModel* p_cc_model = new UnifromG1GenerationCellCycleModel```. Simillarly, lets Uncomment lines 
 202 - 206. This will allow our cells to grow and divide. Split their concentrations and creating a much more dynamic simulation than we initially started out with. 
 
 You could further explore this test by altering the initial conditions of our A,B and C concentrations. For example, how does your final simulation result change if you give none equal cocnentrations of the initial proteins ? How is the end result effected if we "flood" the simulation with a higher initial cocnentraiton of the A homodimer forming protein. You could also try increasing or decreasing the initial bias caused by the offset. How does altering this effect your end results.
