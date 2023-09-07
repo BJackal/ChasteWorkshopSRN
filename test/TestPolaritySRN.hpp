@@ -66,11 +66,9 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 * These will be discussed further into the file.*/
 #include "HoneycombVertexMeshGenerator.hpp"
 #include "VoronoiVertexMeshGenerator.hpp"
-#include "NagaiHondaForce.hpp"
 #include "FarhadifarForce.hpp"
 #include "NodeBasedCellPopulation.hpp"
 #include "OffLatticeSimulation.hpp"
-#include "SimpleTargetAreaModifier.hpp"
 #include "TargetAreaLinearGrowthModifier.hpp"
 #include "SmartPointers.hpp"
 #include "TransitCellProliferativeType.hpp"
