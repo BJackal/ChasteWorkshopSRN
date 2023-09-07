@@ -189,7 +189,7 @@ public:
         /* We are now in a position to create and configure the cell-based simulation object, pass a force law to it,
          * and run the simulation. */
         OffLatticeSimulation<2> simulator(cell_population);
-        simulator.SetOutputDirectory("TestPolarityEdgeOnlyODESimulation1");
+        simulator.SetOutputDirectory("TestPolarityEdgeOnlyODESimulation");
         simulator.SetSamplingTimestepMultiple(1);
         simulator.SetDt(0.1);
         simulator.SetEndTime(100);
