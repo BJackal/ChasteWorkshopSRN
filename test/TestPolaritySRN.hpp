@@ -108,7 +108,7 @@ public:
     void TestPolarity()
     {
         /* First we create a regular vertex mesh. */
-        HoneycombVertexMeshGenerator generator(3, 3);
+        HoneycombVertexMeshGenerator generator(6, 6);
         // VoronoiVertexMeshGenerator generator(3, 3,1,1.0);
         boost::shared_ptr<MutableVertexMesh<2, 2> > p_mesh = generator.GetMesh();
 
