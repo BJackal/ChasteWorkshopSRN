@@ -94,10 +94,10 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * components of Chaste.
  */
 
-class TestHello_DeltaNotch : public AbstractCellBasedTestSuite
+class TestDeltaNotchSRN : public AbstractCellBasedTestSuite
 {
 public:
-    void TestRunningMultiODECellWithEdges()
+    void TestDeltaNotch()
     {
         /* First we create a regular vertex mesh containg a mesh of 70 x 1 elements. */
         HoneycombVertexMeshGenerator generator(70, 1);
@@ -179,7 +179,7 @@ public:
          * and run the simulation. First we pass our cell population as an off lattice simulation.*/
         OffLatticeSimulation<2> simulator(cell_population);
         /*Then we tell our simulation were to output its results, by default this goes to /tmp/YourUser/testoutput*/
-        simulator.SetOutputDirectory("TestDeltaNotchEdgeOnlyODESimulation1");
+        simulator.SetOutputDirectory("TestDeltaNotchEdgeOnlyODESimulation");
         /*Defining that our simulation will output its deta every tenth Dt, with a Dt of 0.001 and an end time of 100*/
         simulator.SetSamplingTimestepMultiple(10);
         simulator.SetDt(0.1);
