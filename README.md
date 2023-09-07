@@ -42,5 +42,3 @@ Here we will investigate a simplified version in our simulation focusing on only
 First lets open up our test again and take a look around. By default we can see that we have set up a 3 by 3 grid of cells and that we only initialise or simulation with the none bound Proteins A,B and C. We utilise an "offset" for initalising our B concentration, this acts as an initial global signal for around 0.001% to be localised greater in the distall direction and less on the proximal edges. Simillar to before, we again start with no force or cell cycle model present in our simulation.
 
 Following previous steps we can already run our simulation by executing ```make -j4 TestPolaritySRN``` and on completion execute ```ctest -V -R TestPolaritySRN```. Then you can launch the simulation in paraview and investigate how polarity forms across our small tissue in time.
-
-If you clone this repository, you should make sure to rename the template_project folder with your project name and run the 'setup_project.py' script to avoid conflicts if you have multiple projects.
