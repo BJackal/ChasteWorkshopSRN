@@ -65,10 +65,13 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 /*Here we include all of the relavent other files to be used throughout or simulation setup
 * These will be discussed further into the file.*/
 #include "HoneycombVertexMeshGenerator.hpp"
+#include "VoronoiVertexMeshGenerator.hpp"
 #include "NagaiHondaForce.hpp"
+#include "FarhadifarForce.hpp"
 #include "NodeBasedCellPopulation.hpp"
 #include "OffLatticeSimulation.hpp"
 #include "SimpleTargetAreaModifier.hpp"
+#include "TargetAreaLinearGrowthModifier.hpp"
 #include "SmartPointers.hpp"
 #include "TransitCellProliferativeType.hpp"
 #include "UniformCellCycleModel.hpp"
@@ -83,16 +86,11 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * @file
  *
  * This is an example of a test suite, used to test the source
- * code, and also used to run simulations for A Notch based simulations.
- * Here our A and notch will evolve on the edge of our cells based on 
- * the A-Notch ODE system described by Collier et al,
- * "Pattern formation by lateral inhibition with feedback: a mathematical
- * model of A-notch intercellular signalling" (Journal of Theoretical
- * Biology 183:429-446, 1996).
- * 
- * Here, however, we include edge based model: A and Notch interactions between each cell
- * are modelled directly. We use similar ODE system as by Collier et al., except that we modify terms
- * corresponding to means of neighbour concentrations of A/Notch.
+ * code, and also used to run simulations for a Poalrity based simulations.
+ * Here our proteins will evolve and diffuse on the edge of our cells based on 
+ * a simplified version of Fisher et als work,
+ * "Experimental and Theoretical Evidence for Bidirectional Singaling via Core
+ Planar Polarity Protein Complexes in Drosophila" (iScience  17:49-66, 2019).
  *
  * You can #include any of the files in the project 'src' folder.
  * For example here we #include "CellVolumeWriter.hpp"
@@ -104,13 +102,14 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * components of Chaste.
  */
 
-class TestHello_ANotch : public AbstractCellBasedTestSuite
+class TestPolaritySRN : public AbstractCellBasedTestSuite
 {
 public:
-    void TestRunningMultiODECellWithEdges()
+    void TestPolarity()
     {
         /* First we create a regular vertex mesh. */
         HoneycombVertexMeshGenerator generator(3, 3);
+        // VoronoiVertexMeshGenerator generator(3, 3,1,1.0);
         boost::shared_ptr<MutableVertexMesh<2, 2> > p_mesh = generator.GetMesh();
 
         std::vector<CellPtr> cells;
@@ -152,18 +151,7 @@ public:
                 }else if( i== 2 || i == 3){
                   offset1 = 1.001;
                 }
-                
-                if (elem_index == 4){
-                /* Initial concentration of A and notch vary depending on the edge length */
-                initial_conditions.push_back(A_concentration);
-                initial_conditions.push_back(BoundA_concentration);
-                initial_conditions.push_back((B_concentration * 0));
-                initial_conditions.push_back(C_concentration);
-                initial_conditions.push_back(BA_concentration);
-                initial_conditions.push_back(AB_concentration);
-                initial_conditions.push_back(CA_concentration);
-                initial_conditions.push_back(AC_concentration);
-                } else {
+               
                 initial_conditions.push_back(A_concentration);
                 initial_conditions.push_back(BoundA_concentration);
                 initial_conditions.push_back((B_concentration * offset1));
@@ -203,22 +191,21 @@ public:
         OffLatticeSimulation<2> simulator(cell_population);
         simulator.SetOutputDirectory("TestPolarityEdgeOnlyODESimulation1");
         simulator.SetSamplingTimestepMultiple(1);
-        simulator.SetDt(1.0);
-        simulator.SetEndTime(10000);
+        simulator.SetDt(0.1);
+        simulator.SetEndTime(100);
 
         /* Update CellEdgeData so that SRN simulations can run properly */
         MAKE_PTR(PolarityEdgeTrackingModifier<2>, p_modifier);
         
         simulator.AddSimulationModifier(p_modifier);
 
-        //MAKE_PTR(NagaiHondaForce<2>, p_force);
+        //MAKE_PTR(FarhadifarForce<2>, p_force);
         //simulator.AddForce(p_force);
 
-        //MAKE_PTR(SimpleTargetAreaModifier<2>, p_growth_modifier);
+        //MAKE_PTR(TargetAreaLinearGrowthModifier<2>, p_growth_modifier);
         //simulator.AddSimulationModifier(p_growth_modifier);
-        simulator.Solve();
 
-        //TS_ASSERT_THROWS_NOTHING(simulator.Solve());
+        TS_ASSERT_THROWS_NOTHING(simulator.Solve());
     }
 };
 
