@@ -99,8 +99,8 @@ class TestHello_DeltaNotch : public AbstractCellBasedTestSuite
 public:
     void TestRunningMultiODECellWithEdges()
     {
-        /* First we create a regular vertex mesh containg a mesh of 6 x 6 elements. */
-        HoneycombVertexMeshGenerator generator(6, 6);
+        /* First we create a regular vertex mesh containg a mesh of 70 x 1 elements. */
+        HoneycombVertexMeshGenerator generator(70, 1);
         boost::shared_ptr<MutableVertexMesh<2, 2> > p_mesh = generator.GetMesh();
 
         std::vector<CellPtr> cells;
@@ -113,7 +113,7 @@ public:
         {
             /* To be begin with, we will initalise our cells with the dummy no cycle 
                 model to prevent proliferation*/
-            UniformG1GenerationalCellCycleModel* p_cc_model = new UniformG1GenerationalCellCycleModel();
+            NoCellCycleModel* p_cc_model = new NoCellCycleModel();
             p_cc_model->SetDimension(2);
 
             /*Get the current element*/
@@ -191,11 +191,11 @@ public:
         simulator.AddSimulationModifier(p_modifier);
         
         /*We can also pass a force modifier to our simulation but will initially leave this turned off*/
-        MAKE_PTR(FarhadifarForce<2>, p_force);
-        simulator.AddForce(p_force);
+        //MAKE_PTR(FarhadifarForce<2>, p_force);
+        //simulator.AddForce(p_force);
 
-        MAKE_PTR(SimpleTargetAreaModifier<2>, p_growth_modifier);
-        simulator.AddSimulationModifier(p_growth_modifier);
+        //MAKE_PTR(SimpleTargetAreaModifier<2>, p_growth_modifier);
+        //simulator.AddSimulationModifier(p_growth_modifier);
         
         /*Finally, we run our simulation and assert that the solver throws nothing*/
         TS_ASSERT_THROWS_NOTHING(simulator.Solve());
