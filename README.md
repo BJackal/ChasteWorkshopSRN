@@ -16,7 +16,7 @@ We are no ready to to make our tests.
 
 To ensure that this has been done correctlly we can build our example test of TestHello and ensure that it passes.
 First at the command line we run ```make TestHello``` and on completion we can run the example test using ```ctest -R TestHello$```.
-If this test succesfully makes and pass we know that our project is correctlly compiled and working.
+If this test succesfully makes and passes we know that our project is correctlly compiled and working.
 
 Here we will explore two examples of using SRN models in chaste. First, we will explore an example in Chaste of the Delta-Notch signalling pathway. Here we utilise the ODE system presented in the work Collier et al (1996) for the feedback loop between Delta and Notch. The one major difference in our system being that Delta concentrations in the neighbouring cells are used directly.
 
