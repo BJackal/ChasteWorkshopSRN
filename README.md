@@ -1,7 +1,5 @@
 # Delta-Notch and cell polarity SRN modelling project for use with Chaste.
 
-You can either follow the instructions for the user project here or using the following Google worksheet: [INCLUDE WORKSHEET]
-
 Biological systems are an extensive research area across multiple disciplines. The high level of complexity within these systems due to dependencies on multiple factors makes them challenging to investigate. However, many of these systems can be represented as a network of biochemical reactions. For instance Subcellular Reaction Networks (SRNs) can be used to model multiple biological systems, such as: gene regulation networks, predicting protein-protein interaction networks and many more.
 
 First we need to follow the steps outlined on the chaste website for correctlly initalizing our user project: 
