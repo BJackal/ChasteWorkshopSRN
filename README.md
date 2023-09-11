@@ -1,9 +1,13 @@
-# Delta-Notch and cell polarity SRN modelling project for use with Chaste.
+# Modelling cell-cell signalling with state reaction networks in Chaste
 
-Biological systems are an extensive research area across multiple disciplines. The high level of complexity within these systems due to dependencies on multiple factors makes them challenging to investigate. However, many of these systems can be represented as a network of biochemical reactions. For instance Subcellular Reaction Networks (SRNs) can be used to model multiple biological systems, such as: gene regulation networks, predicting protein-protein interaction networks and many more.
+Biological systems are an extensive research area across multiple disciplines. 
+The high level of complexity within these systems due to dependencies on multiple factors makes them challenging to investigate. 
+However, many of these systems can be represented as networks of biochemical reactions. 
+So-called Subcellular Reaction Networks (SRNs) can be used to mathematically model biological systems such as gene regulation networks and protein-protein interaction networks. 
+In this practical, we will investigate how to simulate two examples of cell-cell signalling using SRNs in Chaste, building on the previous vertex model examples we looked at on Monday and Tuesday.
 
-First we need to follow the steps outlined on the chaste website for correctlly initalizing our user project: 
-https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/UserProjects
+First we need to follow the steps outlined on the Chaste website for correctly initalizing a user project: https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/UserProjects
+<!-- Replace previous sentence with link to whatever text is provided by Fergus on Tuesday for how to create, modify and clone user projects -->
 
 Thus we first must navigate to our Chaste project folder: ```cd /path/to/Chaste/projects```
 Then we must clone this project: ``` git clone https://github.com/BJackal/ChasteWorkshopSRN.git```
@@ -43,7 +47,7 @@ First lets open up our test again and take a look around. By default we can see 
 
 Following previous steps we can already run our simulation by executing ```make -j4 TestPolaritySRN``` and on completion execute ```ctest -V -R TestPolaritySRN```. Then you can launch the simulation results in paraview and investigate how polarity forms across our small tissue in time. You can use the previous methods described in Example 1 to investigate the evolution of the protein species over time to investiagte how our species interact with each other.
 
-Now lets try to edit some of the underlying source code in our Cahste/projects/ChasteWorkShopSRN/src folder. Lets open PolarityEdgeTrackingModifier.cpp. This file contains several underlying functions for keeping track of cellular edge data. On line 38 you will find the class variable```mUnboundProteinDiffusionCoefficient(0.03)```. This represents our proteins diffusion rates and is utilised in the function ```UpdateCellData``` for diffusion of proteins around our cells edges. Trying reducing or increasing this coefficient then save your changes. Now that we have updated this underlying src file we will need to cmake our build folder again. To do this lets go back to our build folder (outside the main chaste soruce code folder) and run at command line ```cmake /path/to/Chaste/``` then ```make -j4 TestPolaritySRN``` and on completion execute ```ctest -V -R TestPolaritySRN```. Opening up the results in paraview what change if any do you find to the temoporal behavioru of the proteins compared to the original diffusion coefficient ?
+Now lets try to edit some of the underlying source code in our Chaste/projects/ChasteWorkShopSRN/src folder. Lets open PolarityEdgeTrackingModifier.cpp. This file contains several underlying functions for keeping track of cellular edge data. On line 38 you will find the class variable```mUnboundProteinDiffusionCoefficient(0.03)```. This represents our proteins diffusion rates and is utilised in the function ```UpdateCellData``` for diffusion of proteins around our cells edges. Trying reducing or increasing this coefficient then save your changes. Now that we have updated this underlying src file we will need to cmake our build folder again. To do this lets go back to our build folder (outside the main chaste soruce code folder) and run at command line ```cmake /path/to/Chaste/``` then ```make -j4 TestPolaritySRN``` and on completion execute ```ctest -V -R TestPolaritySRN```. Opening up the results in paraview what change if any do you find to the temoporal behavioru of the proteins compared to the original diffusion coefficient ?
 
 As we have only previously utilised a uniform vertex mesh so far, lets go back to our test file and comment out line 111 and repalce this by uncommenting line 112. This will switch out our uniform vertex mesh for a more dynamic Voronoi vertex mesh. This will create a dynamic mesh with cells edges defined based on distances from each others centres. Now re-run your simulation to view how this looks in paraview and compare it to the previous uniform mesh.
 
