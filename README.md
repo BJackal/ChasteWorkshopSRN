@@ -9,18 +9,12 @@ In this practical, we will investigate how to simulate two examples of cell-cell
 First we need to follow the steps outlined on the Chaste website for correctly initalizing a user project: https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/UserProjects
 <!-- Replace previous sentence with link to whatever text is provided by Fergus on Tuesday for how to create, modify and clone user projects -->
 
-Thus we first must navigate to our Chaste project folder: ```cd /path/to/Chaste/projects```
-Then we must clone this project: ``` git clone https://github.com/BJackal/ChasteWorkshopSRN.git```
-Now we navigate into our cloned user project from the command line and run our setup: ```python setup_project.py```
-Here our project only relies on the cell based portion of Chaste so we answer yes to cell based and no to lung and heart.
-Now we are ready to make sure that our project will compile correctly. To do this we use the command line to navigate to our chaste build folder (This should be outside of the main Chaste source folder) and run: ```ccmake path/to/Chaste```
-While this is running we will be prompted for an input to configure our project. For this we will press ```c ``` then on completion ```e``` to exit.
-Then we will configure with ```c``` onece more, followed up by ```e``` to exit and finally ```g``` to generate.
-We are no ready to to make our tests.
-
-To ensure that this has been done correctlly we can build our example test of TestHello and ensure that it passes.
-First at the command line we run ```make TestHello``` and on completion we can run the example test using ```ctest -R TestHello$```.
-If this test succesfully makes and passes we know that our project is correctlly compiled and working.
+<!-- Add sentence explaining that if they're using Chaste docker, then start it up, or equivalent if they're running Chaste natively. -->
+ * Navigate to your Chaste projects folder: ```cd /path/to/Chaste/projects```
+ * Clone this user project: ``` git clone https://github.com/BJackal/ChasteWorkshopSRN.git```
+ * Navigate to the cloned user project from the command line and set it up: ```python setup_project.py```. This user project only relies on the cell-based Chaste, so answer `yes` to cell-based and `no` to lung and heart. <!-- Do you actually answer 'yes', or 'Y', etc? -->
+ * Now we are ready to make sure that the user project will compile correctly. To do this, use the command line to navigate to the Chaste build folder (this should be outside of the main Chaste source folder) and run: ```ccmake path/to/Chaste```. <!-- Assuming they're running Chaste docker, tell them precisely where the build folder is --> While this is running, you will be prompted for an input to configure your user project. Press ```c ```, then on completion press ```e``` to exit. Next, configure with ```c``` once more, followed up by ```e``` to exit and finally ```g``` to generate. We are no ready to to make our tests. <!-- Go through the rest of the text and change "we" to "you" -->
+ * To ensure that this has been done correctly, you can build the example test called `TestHello` and ensure that it passes. First at the command line we run ```make TestHello``` and on completion we can run the example test using ```ctest -R TestHello$```. <!-- Not just at the command line - presumably from the Chaste build folder? --> If this test succesfully makes and passes, youe know that the user project is compiled correctly. <!-- Since you've run setup_project, won't TestHello have renamed to something like TestHello_ChasteWorkshopSRN by this point? -->
 
 Here we will explore two examples of using SRN models in chaste. First, we will explore an example in Chaste of the Delta-Notch signalling pathway. Here we utilise the ODE system presented in the work Collier et al (1996) for the feedback loop between Delta and Notch. The one major difference in our system being that Delta concentrations in the neighbouring cells are used directly.
 
