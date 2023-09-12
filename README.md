@@ -17,7 +17,7 @@ First you need to follow the steps outlined on the Chaste website for correctly 
 
 Here you will explore two examples of using SRN models in chaste. First, you will explore an example in Chaste of the Delta-Notch signalling pathway. Here you will utilise a modified version of Collier et als (1996, https://doi.org/10.1006/jtbi.1996.0233) work for the feedback loop between Delta and Notch. The one major difference in our system being that Delta concentrations in the neighbouring cells are used directly. Second, you will be able to investigate the formation of planar polarity in a 2D tissue based on a simplified version of the work of Fisher et al (2019, https://doi.org/10.1016/j.isci.2019.06.021).
 
-# Example 1: Delta-Notch signalling
+## Example 1: Delta-Notch signalling
 The test you will be following for this section can be found within ```path/to/Chaste/projects/ChasteWorkshopSRN/test/TestDeltaNotchSRN```. First, open this file in visual studio code. You can look over the commented code describing what each line of text is being used for. 
 
 All files will start out with relavent includes for which parts of Chaste you wish to utilise and this is also where you would include any of your own custom code that you may use in your own simulations.
@@ -66,7 +66,7 @@ Now you are ready to run your simulation again. Still in your ```/build``` direc
 
 You can further explore this test by trying different cell configurations. Simillarly you can also investigate how changing the initial conditions in your simulation, such as Delta and Notch, may lead to different end states for your simulation.
 
-# Example 2: Planar polarity. 
+## Example 2: Planar polarity
 
 Another use case for edge based SRN simulations is modelling planar polarity in epethelial tissues. Planar polarity(PP) is a form of protein mediated patterning across tissue due to signalling. Creating distinctive patterns across large length scales in many tissues. For example, in the wing of the Drasophila fruit fly wings there are many hairs across the wings used for sensory pruposes. These hairs have been noted to be all pointing from the proximal side of wings out towards the distal end. It has been found that there is a set of core proteins in the Drosophila wings which which create a simillar patterning on the cellular to tissue scale. This pattern is formed by two main proteins Frizzled(Fz) and Strabismus (Stb). These proteins then localise proximally and or distally based on positive feedback with their own species and ihibit the binding of the opposite protein on the same edge. Fz and Stb binding at cellular junctions to Flamingo (Fl) homodimers which bind across junctions.
 
@@ -84,4 +84,23 @@ Simillar to in Example 1 you can also repalce your ```NoCellCycleModel* p_cc_mod
 
 You could further explore this test by altering the initial conditions of your A,B and C concentrations. For example, how does your final simulation result change if you give none equal cocnentrations of the initial proteins ? How is the end result effected if you "flooded" the simulation with a higher initial cocnentraiton of the A homodimer forming protein. You could also try increasing or decreasing the initial bias caused by the offset. How does altering this effect your end results.
 
+# Modelling cell-environment feedbacks with partial differential equations in Chaste
 
+Reaction-advection-diffusion partial differential equations (PDEs) can be used to mathematically model paracrine signalling, nutrient transport, and other forms of cell-environment feedbacks. 
+In Chaste, dynamic or steady-state PDEs (or PDE systems) can be defined on the spatial domain occupied by a population of cells. 
+Simulation modifiers are used to numerically integrate these PDEs over time, and their numerical solution may be used by cells to inform their behaviour via `CellData` items. 
+In this practical, you will investigate two examples of cell-environment feedbacks in Chaste, oxygen-dependent tumour spheroid growth and morphogen-dependent cell proliferation.
+
+## Example 1: Oxygen-dependent tumour spheroid growth
+
+Read through the [https://chaste.cs.ox.ac.uk/trac/wiki/UserTutorials/RunningTumourSpheroidSimulations](tumour spheroid 'user tutorial') that can be found on the old Chaste wiki. 
+If you are able to explore your local copy of the Chaste source code, e.g. in Visual Studio code, then you can find this user tutorial as a test suite located at `cell_based/test/tutorial/TestRunningTumourSpheroidSimulationsTutorial.hpp`. 
+Try running this yourself for different values of the oxygen uptake rate and the boundary oxygen concentration. 
+You can also explore varying the oxygen-dependent cell-cycle model parameters by calling the methods `SetHypoxicConcentration()`, `SetQuiescentConcentration()`, or `SetCriticalHypoxicDuration()` on `p_model`.
+If you're not sure how to do this after having read the user tutorial, then please ask one of the demonstrators.
+
+## Example 2: Morphogen-dependent proliferation
+
+Visit the [https://chaste.cs.ox.ac.uk/trac/wiki/PaperTutorials/CellBasedComparison2017/MorphogenMonolayer](morphogen-dependent proliferation 'paper tutorial') that can be found on the old Chaste wiki. 
+Try running this yourself locally, by creating a new test suite and pasting the code found at the bottom of the wiki page into it. 
+If you're not sure how to create and run a new test suite after having read the guidance [https://chaste.cs.ox.ac.uk/trac/wiki/UserTutorials/WritingTests](here), then please ask one of the demonstrators.
