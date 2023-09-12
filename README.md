@@ -24,9 +24,37 @@ For the first run through you will look at an edge based SRN model for a line of
 
 If you do not already have Paraview installed on your system, you can download it from the Paraview website here: https://www.paraview.org/download/
 
-In Paraview first navigate to File -> Open. Then navigate to your test results folder, by default this should be /tmp/YourUserName/testoutput/TestDeltaNotchEdgeODESimulation. Opening the results_from_time_0.vtu file. Click the green apply button for your cells to appear. Then on the second row of the toolbar there will be two drop down menus defaulted to "Solid colour" and "Surface". You will need to change these to "edge delta" and "Surface With Edges". Finally, before playing the simulation you need to modify your colour bar for the entire time series of the simulation. To do this you can click the 6th button on the second row of the toolbars ( This should be a green arrow pointing in two directions with a small t) then click rescale when prompted withthe disable automatic rescaling option. Now you can play your simulation and watch how the edge based Delta evolves over time in the simulation. Similarlly, you can also change from your "edge delta" to "edge notch" to view how that also changes in time. 
+In Paraview first navigate to File -> Open. 
 
-If you wished to explore and plot how a given edges cocnentration of delta and notch changed in time you need to first click the "Select Cells On" button (This looks like a green triangle surrounded by a dotted box) then select your given edge of interest. In this example right most edge of the second cell conencting to its neigbhour has been selected. Now, navigate to Filters -> Data Analysis -> Plot Selection Over time. Then click the green apply button.This will create a graph showing all parameters on that edge, for now turn off all parameters except edge notch and edge delta. Now you can see how your concentrations of Delta and Notch evolve on this edge in time. You can try this across multiple edges between neighbours to see how each individual edge evolves in time.
+![File](https://user-images.githubusercontent.com/44051158/267284363-fd8975ab-6d5e-4b08-a0c4-74bce976413d.png) 
+
+Then navigate to your test results folder, by default if running Chaste nativley this should be /tmp/YourUserName/testoutput/TestDeltaNotchEdgeODESimulation. If running Chaste through docker these outputs should be under /testoutput. Opening the results_from_time_0.vtu file. Click the green apply button for your cells to appear. 
+
+![Apply](https://user-images.githubusercontent.com/44051158/267284370-dbd9b8c6-819a-4be9-859a-e33cbaee02e5.png)
+
+Then on the second row of the toolbar there will be two drop down menus defaulted to "Solid colour" and "Surface". You will need to change these to "edge delta" and "Surface With Edges". 
+
+![EdgeData](https://user-images.githubusercontent.com/44051158/267284375-bd646b3d-4f8c-4358-a60f-6fa24bc2da41.png)
+
+Finally, before playing the simulation you need to modify your colour bar for the entire time series of the simulation. To do this you can click the 6th button on the second row of the toolbars ( This should be a green arrow pointing in two directions with a small t) then click rescale when prompted withthe disable automatic rescaling option. 
+
+![ColourBarTimeScaling](https://user-images.githubusercontent.com/44051158/267284376-13b09ccf-77d7-4a31-a20f-772338166f39.png)
+
+Now you can play your simulation and watch how the edge based Delta evolves over time in the simulation. Similarlly, you can also change from your "edge delta" to "edge notch" to view how that also changes in time. 
+
+If you wished to explore and plot how a given edges cocnentration of delta and notch changed in time you need to first click the "Select Cells On" button (This looks like a green triangle surrounded by a dotted box) then select your given edge of interest. In this example right most edge of the second cell conencting to its neigbhour has been selected. 
+
+![EdgeSelection](https://user-images.githubusercontent.com/44051158/267284377-3735d07b-3256-4d63-8df5-1e14acdcacfd.png)
+
+Now, navigate to Filters -> Data Analysis -> Plot Selection Over time. Then click the green apply button.This will create a graph showing all parameters on that edge.
+
+![GraphFirst](https://user-images.githubusercontent.com/44051158/267284352-040fdefb-e231-40a1-b6a1-893a3d1ec95d.png)
+
+For now turn off all parameters except edge notch and edge delta and you should have a graph that looks like the following image.
+
+![GraphSecond](https://user-images.githubusercontent.com/44051158/267284359-fc11e6d5-e2e9-4709-ad82-7788d14c4e16.png)
+
+Now you can see how your concentrations of Delta and Notch evolve on this edge in time. You can try this across multiple edges between neighbours to see how each individual edge evolves in time.
 
 For the second run of the simulation you can change your cells to be in a small tissue instead of a single line. To do this you will need to change line 101 in your test file from ```HoneycombVertexMeshGenerator generator (70,1)``` to  ```HoneycombVertexMeshGenerator generator (6,6)```. This will construct your cells in a 6 by 6 grid of cells instead of a single line. Re-run the simulation again using ```make -j4 TestDeltaNotchSRN``` and  ```ctest -V -R TestDeltaNotchSRN``` then view how this looks in paraview.  
 
