@@ -1,10 +1,8 @@
 # Modelling cell-cell signalling with state reaction networks in Chaste
 
-Biological systems are an extensive research area across multiple disciplines. 
-The high level of complexity within these systems due to dependencies on multiple factors makes them challenging to investigate. 
-However, many of these systems can be represented as networks of biochemical reactions. 
-So-called Subcellular Reaction Networks (SRNs) can be used to mathematically model biological systems such as gene regulation networks and protein-protein interaction networks. 
-In this practical, you will investigate how to simulate two examples of cell-cell signalling using SRNs in Chaste, building on the previous vertex model examples you looked at on Monday and Tuesday.
+So-called 'sub-cellular reaction networks' (SRNs) can be used to mathematically model subcellular biological processes such as gene regulatory networks, protein-protein interactions, and signalling pathways. 
+In Chaste, these processes may influence, and/or be influenced by, cellular behaviours such as proliferation, differentiation, adhesion, and motility, as well as cell-cell communication.
+In this practical, you will investigate how to simulate two examples of cell-cell communication using SRNs in Chaste, building on the previous vertex model examples you looked at on Monday and Tuesday.
 
 First you need to follow the steps outlined on the Chaste website for correctly initalizing a user project: https://chaste.cs.ox.ac.uk/trac/wiki/ChasteGuides/UserProjects
 <!-- Replace previous sentence with link to whatever text is provided by Fergus on Tuesday for how to create, modify and clone user projects -->
@@ -18,7 +16,7 @@ First you need to follow the steps outlined on the Chaste website for correctly 
 
 Here you will explore two examples of using SRN models in chaste. First, you will explore an example in Chaste of the Delta-Notch signalling pathway. Here you will utilise a modified version of Collier et als (1996, https://doi.org/10.1006/jtbi.1996.0233) work for the feedback loop between Delta and Notch. The one major difference in our system being that Delta concentrations in the neighbouring cells are used directly. Second, you will be able to investigate the formation of planar polarity in a 2D tissue based on a simplified version of the work of Fisher et al (2019, https://doi.org/10.1016/j.isci.2019.06.021).
 
-# Example 1: Delta -Notch Signalling
+# Example 1: Delta-Notch signalling
 The test you will be following for this section can be found within ```/test/TestDeltaNotchSRN```. First, pen this file in visual studio code. You can look over the commented code describing what each line of text is being used for. 
 All files will start out with relavent includes for which parts of Chaste you wish to utilise and this is also where you would include any of your own custom code that you may use in your own simulations.
 
