@@ -158,7 +158,7 @@ public:
                 initial_conditions.push_back(AB_concentration);
                 initial_conditions.push_back(CA_concentration);
                 initial_conditions.push_back(AC_concentration);
-                }
+                
                 MAKE_PTR(PolarityEdgeSrnModel, p_srn_model);
                 p_srn_model->SetInitialConditions(initial_conditions);
                 p_cell_edge_srn_model->AddEdgeSrnModel(p_srn_model);
