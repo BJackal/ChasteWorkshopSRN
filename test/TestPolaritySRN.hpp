@@ -188,7 +188,7 @@ public:
         simulator.SetOutputDirectory("TestPolarityEdgeOnlyODESimulation");
         simulator.SetSamplingTimestepMultiple(1);
         simulator.SetDt(0.1);
-        simulator.SetEndTime(100);
+        simulator.SetEndTime(2000);
 
         /* Update CellEdgeData so that SRN simulations can run properly */
         MAKE_PTR(PolarityEdgeTrackingModifier<2>, p_modifier);
