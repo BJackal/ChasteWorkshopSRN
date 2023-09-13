@@ -110,7 +110,7 @@ void PolarityEdgeOdeSystem::EvaluateYDerivatives(double time, const std::vector<
     const double v1 = KD1*k;
     const double v2 = KD2*k;
 
-    const double K = 0.5;
+    const double K = 0.1665;
     const double VF = 10.0;
     const double VS = 10.0;
     const double xF = BA;
