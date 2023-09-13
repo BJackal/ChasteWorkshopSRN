@@ -15,7 +15,7 @@ First you need to follow the steps outlined in the workshop on Tuesday Chaste to
 
 Here you will explore two examples of using SRN models in chaste. First, you will explore an example in Chaste of the Delta-Notch signalling pathway. Here you will utilise a modified version of Collier et als (1996, https://doi.org/10.1006/jtbi.1996.0233) work for the feedback loop between Delta and Notch. The one major difference in our system being that Delta concentrations in the neighbouring cells are used directly. Second, you will be able to investigate the formation of planar polarity in a 2D tissue based on a simplified version of the work of Fisher et al (2019, https://doi.org/10.1016/j.isci.2019.06.021).
 
-## Example 1: Delta-Notch signalling
+## Example 1: Notch signalling
 The test you will be following for this section can be found within ```path/to/Chaste/projects/ChasteWorkshopSRN/test/TestDeltaNotchSRN```. First, open this file in visual studio code. You can look over the commented code describing what each line of text is being used for. 
 
 All files will start out with relavent includes for which parts of Chaste you wish to utilise and this is also where you would include any of your own custom code that you may use in your own simulations.
@@ -91,7 +91,7 @@ In this practical, you will investigate two examples of cell-environment feedbac
 
 ## Example 1: Oxygen-dependent tumour spheroid growth
 
-Read through the [https://chaste.cs.ox.ac.uk/trac/wiki/UserTutorials/RunningTumourSpheroidSimulations](tumour spheroid 'user tutorial') that can be found on the old Chaste wiki. 
+Read through the (https://chaste.cs.ox.ac.uk/trac/wiki/UserTutorials/RunningTumourSpheroidSimulations)[tumour spheroid 'user tutorial'] that can be found on the old Chaste wiki. 
 If you are able to explore your local copy of the Chaste source code, e.g. in Visual Studio code, then you can find this user tutorial as a test suite located at `cell_based/test/tutorial/TestRunningTumourSpheroidSimulationsTutorial.hpp`. 
 Try running this yourself for different values of the oxygen uptake rate and the boundary oxygen concentration. 
 You can also explore varying the oxygen-dependent cell-cycle model parameters by calling the methods `SetHypoxicConcentration()`, `SetQuiescentConcentration()`, or `SetCriticalHypoxicDuration()` on `p_model`.
@@ -99,6 +99,6 @@ If you're not sure how to do this after having read the user tutorial, then plea
 
 ## Example 2: Morphogen-dependent proliferation
 
-Visit the [https://chaste.cs.ox.ac.uk/trac/wiki/PaperTutorials/CellBasedComparison2017/MorphogenMonolayer](morphogen-dependent proliferation 'paper tutorial') that can be found on the old Chaste wiki. 
+Visit the (https://chaste.cs.ox.ac.uk/trac/wiki/PaperTutorials/CellBasedComparison2017/MorphogenMonolayer)[morphogen-dependent proliferation 'paper tutorial'] that can be found on the old Chaste wiki. 
 Try running this yourself locally, by creating a new test suite and pasting the code found at the bottom of the wiki page into it. 
 If you're not sure how to create and run a new test suite after having read the guidance [https://chaste.cs.ox.ac.uk/trac/wiki/UserTutorials/WritingTests](here), then please ask one of the demonstrators.
