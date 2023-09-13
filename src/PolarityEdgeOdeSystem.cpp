@@ -154,7 +154,7 @@ void PolarityEdgeOdeSystem::EvaluateYDerivatives(double time, const std::vector<
 template<>
 void CellwiseOdeSystemInformation<PolarityEdgeOdeSystem>::Initialise()
 {
-    this->mVariableNames.push_back("boundA");
+    this->mVariableNames.push_back("BoundA");
     this->mVariableUnits.push_back("non-dim");
     this->mInitialConditions.push_back(1.0); // will be filled in later
 
@@ -166,7 +166,7 @@ void CellwiseOdeSystemInformation<PolarityEdgeOdeSystem>::Initialise()
     this->mVariableUnits.push_back("non-dim");
     this->mInitialConditions.push_back(1.0); // will be filled in later
 
-    this->mVariableNames.push_back("B");
+    this->mVariableNames.push_back("C");
     this->mVariableUnits.push_back("non-dim");
     this->mInitialConditions.push_back(1.0); // will be filled in later
 
