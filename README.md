@@ -6,6 +6,8 @@ In this practical, you will investigate how to simulate two examples of cell-cel
 
 First you need to follow the steps outlined in the workshop on Tuesday Chaste to correctly copy and initalise a user project: https://github.com/Chaste/IntroToChasteCpp
 
+**NOTE**: If you are using Chaste nativley your build folder will be something you create outside of the main Chaste source folder called build. If you are running within docker your build folder will be named lib.
+
  * If you are running Chaste through docker you will first need to start up your image
  * Navigate to your Chaste projects folder: ```cd /path/to/Chaste/projects``` for native usage or within docker simply navigate to ```Chaste/projects``` for your docker image after building Chaste navigate to chaste/projects.
  * Clone this user project: ``` git clone https://github.com/BJackal/ChasteWorkshopSRN.git```
