@@ -91,7 +91,7 @@ In this practical, you will investigate two examples of cell-environment feedbac
 
 ## Example 1: Oxygen-dependent tumour spheroid growth
 
-Read through the (https://chaste.cs.ox.ac.uk/trac/wiki/UserTutorials/RunningTumourSpheroidSimulations)[tumour spheroid 'user tutorial'] that can be found on the old Chaste wiki. 
+Read through the [https://chaste.cs.ox.ac.uk/trac/wiki/UserTutorials/RunningTumourSpheroidSimulations](tumour spheroid 'user tutorial') that can be found on the old Chaste wiki. 
 If you are able to explore your local copy of the Chaste source code, e.g. in Visual Studio code, then you can find this user tutorial as a test suite located at `cell_based/test/tutorial/TestRunningTumourSpheroidSimulationsTutorial.hpp`. 
 Try running this yourself for different values of the oxygen uptake rate and the boundary oxygen concentration. 
 You can also explore varying the oxygen-dependent cell-cycle model parameters by calling the methods `SetHypoxicConcentration()`, `SetQuiescentConcentration()`, or `SetCriticalHypoxicDuration()` on `p_model`.
@@ -99,6 +99,6 @@ If you're not sure how to do this after having read the user tutorial, then plea
 
 ## Example 2: Morphogen-dependent proliferation
 
-Visit the (https://chaste.cs.ox.ac.uk/trac/wiki/PaperTutorials/CellBasedComparison2017/MorphogenMonolayer)[morphogen-dependent proliferation 'paper tutorial'] that can be found on the old Chaste wiki. 
+Visit the [https://chaste.cs.ox.ac.uk/trac/wiki/PaperTutorials/CellBasedComparison2017/MorphogenMonolayer](morphogen-dependent proliferation 'paper tutorial') that can be found on the old Chaste wiki. 
 Try running this yourself locally, by creating a new test suite and pasting the code found at the bottom of the wiki page into it. 
 If you're not sure how to create and run a new test suite after having read the guidance [https://chaste.cs.ox.ac.uk/trac/wiki/UserTutorials/WritingTests](here), then please ask one of the demonstrators.
